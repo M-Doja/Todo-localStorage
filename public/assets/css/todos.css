@@ -12,13 +12,86 @@ body{
 }
 #container {
   width: 360px;
-  margin:  100px auto;
+  margin:  60px auto;
   background-color: #f7f7f7;
   box-shadow: rgba(0, 0, 0, 0.5) 0 0 8px;
 }
 .center {
   text-align: center;
 }
+
+.close {
+  position: relative;
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+    color: #FFFFFF;
+    padding: 13px;
+    width: 175px;
+    border-radius: 8px;
+    outline: none;
+    text-align: center;
+    box-shadow: 2px 2px 0  #135058;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.close:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+.close:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.close:hover {
+  background-color: rgb(41, 128, 185);
+}
+
+a {
+  text-decoration: none;
+}
+
+#contact{
+  display: inline-block;
+  margin: 5px auto;
+}
+
+img:hover{
+  cursor: pointer;
+}
+
+#git{
+  display: block;
+  color: black;
+  margin: -105px auto 100px auto;
+}
+a:hover #git{
+  text-shadow: 2px 2px 2px #F1F2B5,
+               2px 2px 2px red;
+}
+
+#GHlink {
+  transition: all 3s
+}
+
+
+
 ol li {
   list-style: none;
 }

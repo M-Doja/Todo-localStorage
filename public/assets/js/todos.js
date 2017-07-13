@@ -52,13 +52,15 @@ $('ul').on('click', 'span', function(e){
 
 // Add new Todo with 'ENTER' button press
 $('input[type="text"]').keypress(function(e){
-  if (e.which === 13) {
+  if (e.which === 13 && $(this).val() !== '') {
     var todoText = $(this).val();
     mainArray.push(todoText);
     localStorage.setItem('array', JSON.stringify(mainArray));
-    $('ul').append(`<li><span class="span"><i class="fa fa-trash"></i></span> ${todoText} </li>`);
+    display(mainArray);
+    // $('ul').append(`<li><span class="span"><i class="fa fa-trash"></i></span> ${todoText} </li>`);
     $(this).val('');
     console.log("ADDED To Array: "+mainArray);
+    location.reload();
   }
 });
 
@@ -69,6 +71,7 @@ $('.fa-plus').click(function(){
 
 // Display Todos on DOM
 function display(mainArray){
+
   for (var i = 0; i < mainArray.length; i++) {
     $('ul').append(`<li><span><i class="fa fa-trash"></i></span> ${mainArray[i]} </li>`);
     console.log("Local: "+mainArray);

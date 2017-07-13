@@ -1,3 +1,21 @@
+$('#about').text('About This Project');
+$('.hidden').hide();
+$('#close').hide();
+
+ // Hide and show App details
+$('#about').on('click', function(){
+  $('.hidden').slideToggle('slow', function(){
+    $('#about').hide();
+    $('#close').show();
+  });
+});
+$('#close').on('click', function(){
+  $('.hidden').slideToggle('slow', function(){
+    $('#about').show();
+    $('#close').hide();
+  });
+});
+
 // Get locally stored Todo data
 var jsonArray = localStorage.getItem('array');
 if (jsonArray) {
@@ -19,22 +37,6 @@ for (var i = 0, len = span.length; i < len; i++) {
     }
   })(i);
 }
-$('#about').text('About This Project');
-$('.hidden').hide();
-$('#close').hide();
-
-$('#about').on('click', function(){
-  $('.hidden').slideToggle('slow', function(){
-    $('#about').hide();
-    $('#close').show();
-  });
-});
-$('#close').on('click', function(){
-  $('.hidden').slideToggle('slow', function(){
-    $('#about').show();
-    $('#close').hide();
-  });
-});
 
 // Mark as 'DONE' on click
 $('ul').on('click', 'li', function(){
@@ -57,7 +59,6 @@ $('input[type="text"]').keypress(function(e){
     mainArray.push(todoText);
     localStorage.setItem('array', JSON.stringify(mainArray));
     display(mainArray);
-    // $('ul').append(`<li><span class="span"><i class="fa fa-trash"></i></span> ${todoText} </li>`);
     $(this).val('');
     console.log("ADDED To Array: "+mainArray);
     location.reload();
@@ -71,7 +72,6 @@ $('.fa-plus').click(function(){
 
 // Display Todos on DOM
 function display(mainArray){
-
   for (var i = 0; i < mainArray.length; i++) {
     $('ul').append(`<li><span><i class="fa fa-trash"></i></span> ${mainArray[i]} </li>`);
     console.log("Local: "+mainArray);
